@@ -1,10 +1,10 @@
-CLASS.AddClass("SWIMMER", {
+CLASS.AddClass("DIVER", {
 	color = Color(75, 160, 235, 255),
 	passiveItems = {
 		"item_ttt_nodrowningdmg"
 	},
 	passive = true,
-	onClassSet = function(ply)
+	OnSet = function(ply)
 		if SERVER then
 			ply:GiveArmor(30)
 			ply:GiveSpeedMultiplier(0.75)
@@ -12,7 +12,7 @@ CLASS.AddClass("SWIMMER", {
 			ply.wasUnderWater = false
 		end
 	end,
-	onClassUnset = function(ply)
+	OnUnset = function(ply)
 		if SERVER then
 			ply:RemoveArmor(30)
 
@@ -25,7 +25,7 @@ CLASS.AddClass("SWIMMER", {
 			ply.wasUnderWater = nil
 		end
 	end,
-	OnClassThink = function(ply)
+	OnThink = function(ply)
 		if SERVER then
 			if ply:WaterLevel() > 0 and not ply.wasUnderWater then
 				ply:RemoveSpeedMultiplier(0.75)
@@ -42,8 +42,8 @@ CLASS.AddClass("SWIMMER", {
 	end,
 	lang = {
 		name = {
-			English = "Swimmer",
-			Deutsch = "Schwimmer"
+			English = "Diver",
+			Deutsch = "Taucher"
 		},
 		desc = {
 			English = "They walk a bit slower being hindered by their wetsuit on land. However they find their home in the water.",
