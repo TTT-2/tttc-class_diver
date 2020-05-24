@@ -7,37 +7,11 @@ CLASS.AddClass("DIVER", {
 	OnSet = function(ply)
 		if SERVER then
 			ply:GiveArmor(30)
-			ply:GiveSpeedMultiplier(0.75)
-
-			ply.wasUnderWater = false
 		end
 	end,
 	OnUnset = function(ply)
 		if SERVER then
 			ply:RemoveArmor(30)
-
-			if ply.wasUnderWater then
-				ply:RemoveSpeedMultiplier(5.0)
-			else
-				ply:RemoveSpeedMultiplier(0.75)
-			end
-
-			ply.wasUnderWater = nil
-		end
-	end,
-	OnThink = function(ply)
-		if SERVER then
-			if ply:WaterLevel() > 0 and not ply.wasUnderWater then
-				ply:RemoveSpeedMultiplier(0.75)
-				ply:GiveSpeedMultiplier(5.0)
-
-				ply.wasUnderWater = true
-			elseif ply:WaterLevel() == 0 and ply.wasUnderWater then
-				ply:RemoveSpeedMultiplier(5.0)
-				ply:GiveSpeedMultiplier(0.75)
-
-				ply.wasUnderWater = false
-			end
 		end
 	end,
 	lang = {
@@ -51,3 +25,9 @@ CLASS.AddClass("DIVER", {
 		}
 	}
 })
+
+hook.Add("TTTPlayerSpeedModifier", "tttc_class_diver_walkspeed", function(ply, _, _, speedMultiplierModifier)
+	if ply:GetCustomClass() ~= CLASS.CLASSES.DIVER.index then return end
+
+	speedMultiplierModifier[1] = speedMultiplierModifier[1] * ((ply:WaterLevel() > 0) and 4.0 or 0.75)
+end)
