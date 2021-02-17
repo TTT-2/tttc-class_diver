@@ -16,14 +16,14 @@ CLASS.AddClass("DIVER", {
 	end,
 	lang = {
 		name = {
-			English = "Diver",
-			Deutsch = "Taucher",
-			Русский = "Дайвер"
+			en = "Diver",
+			de = "Taucher",
+			ru = "Дайвер"
 		},
 		desc = {
-			English = "They walk a bit slower being hindered by their wetsuit on land. However they find their home in the water.",
-			Deutsch = "Wegen seines Neoprenanzuges läuft er langsamer an Land. Im Wasser jedoch fühlt er sich zu Hause.",
-			Русский = "Он идёт немного медленнее, потому что на суше его гидрокостюм мешает. Однако ему уютно находиться в воде."
+			en = "They walk a bit slower being hindered by their wetsuit on land. However they find their home in the water.",
+			de = "Wegen seines Neoprenanzuges läuft er langsamer an Land. Im Wasser jedoch fühlt er sich zu Hause.",
+			ru = "Он идёт немного медленнее, потому что на суше его гидрокостюм мешает. Однако ему уютно находиться в воде."
 		}
 	}
 })

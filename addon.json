@@ -1,0 +1,11 @@
+{
+	"title"		:	"[TTTC] Diver [CLASS]",
+	"type"		:	"effects",
+    "tags"		:	[ "realism", "fun" ],
+    "ignore"    : [
+        ".git/*",
+        ".gitignore",
+        "README.md",
+		"tttc-class_diver.jpg"
+    ]
+}
